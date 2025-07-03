@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://empresa.com/departamento"
+           xmlns="http://empresa.com/departamento"
+           elementFormDefault="qualified">
+
+  <xs:element name="departamentos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="departamento" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" type="xs:string"/>
+              <xs:element name="director" type="xs:string"/>
+              <xs:element name="empleados">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="empleado" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:attribute name="cod" use="required">
+                          <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                              <xs:pattern value="E\d{4}"/>
+                            </xs:restriction>
+                          </xs:simpleType>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="direccion">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="calle" type="xs:string"/>
+                    <xs:element name="ciudad" type="xs:string"/>
+                    <xs:element name="codigoPostal">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:pattern value="[0-9]{5}"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="cod">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="D\d{4}"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

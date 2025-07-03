@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://empresa.com/consultor"
+           xmlns="http://empresa.com/consultor"
+           elementFormDefault="qualified">
+
+  <xs:element name="consultores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="consultor" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" type="xs:string"/>
+              <xs:element name="sexo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="F"/>
+                    <xs:enumeration value="f"/>
+                    <xs:enumeration value="M"/>
+                    <xs:enumeration value="m"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="contacto">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="email" type="xs:string"/>
+                    <xs:element name="telefono">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:pattern value="[0-9]{9}"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="departamento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Tecnología"/>
+                    <xs:enumeration value="Contabilidad"/>
+                    <xs:enumeration value="Recursos Humanos"/>
+                    <xs:enumeration value="Marketing"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="empresaExterna" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="cod" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:pattern value="C\d{4}"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="vista.xsl" type="text/xsl"?>
-<registroPersonal xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="empresa.xsd">
+<registroPersonal xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:Location="empresa.xsd">
 
   <!-- Empleados -->
   <empleados>
