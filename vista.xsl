@@ -2,7 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
   <xsl:output method="html" encoding="UTF-8" indent="yes"/>
-  <xsl:key name="departamentosUnicos" match="empleado" use="departamento"/>
+
+  <!-- Claves corregidas y separadas -->
+  <xsl:key name="departamentosUnicosEmpleados" match="empleado" use="departamento"/>
+  <xsl:key name="departamentosUnicosConsultores" match="consultor" use="departamento"/>
 
   <xsl:template match="/registroPersonal">
     <html>
@@ -19,12 +22,16 @@
         <script>
           <![CDATA[
             $(document).ready(function(){
-              var tablaEmpleados = $('#tablaEmpleados').DataTable(responsive:true);
-              $('#tablaConsultores').DataTable(responsive:true);
-              $('#tablaDepartamentos').DataTable(responsive:true);
+              var tablaEmpleados = $('#tablaEmpleados').DataTable();
+              var tablaConsultores = $('#tablaConsultores').DataTable();
+              $('#tablaDepartamentos').DataTable();
 
               $('#filtroDepartamento').on('change', function () {
                 tablaEmpleados.column(5).search(this.value).draw();
+              });
+
+              $('#filtrodepartamento').on('change', function () {
+                tablaConsultores.column(5).search(this.value).draw();
               });
             });
           ]]>
@@ -58,11 +65,10 @@
 
             <!-- Empleados -->
             <div class="tab-pane fade show active" id="empleados" role="tabpanel">
-              <!-- Filtro por departamento -->
               <label for="filtroDepartamento" class="form-label">Filtrar por departamento:</label>
               <select id="filtroDepartamento" class="form-select mb-3">
                 <option value="">-- Todos --</option>
-                <xsl:for-each select="empleados/empleado[generate-id() = generate-id(key('departamentosUnicos', departamento)[1])]">
+                <xsl:for-each select="empleados/empleado[generate-id() = generate-id(key('departamentosUnicosEmpleados', departamento)[1])]">
                   <xsl:sort select="departamento"/>
                   <option>
                     <xsl:value-of select="departamento"/>
@@ -98,6 +104,17 @@
 
             <!-- Consultores -->
             <div class="tab-pane fade" id="consultores" role="tabpanel">
+              <label for="filtrodepartamento" class="form-label">Filtrar por departamento:</label>
+              <select id="filtrodepartamento" class="form-select mb-3">
+                <option value="">-- Todos --</option>
+                <xsl:for-each select="consultores/consultor[generate-id() = generate-id(key('departamentosUnicosConsultores', departamento)[1])]">
+                  <xsl:sort select="departamento"/>
+                  <option>
+                    <xsl:value-of select="departamento"/>
+                  </option>
+                </xsl:for-each>
+              </select>
+
               <table id="tablaConsultores" class="table table-striped">
                 <thead class="table-secondary">
                   <tr>
@@ -152,8 +169,8 @@
                         </xsl:for-each>
                       </td>
                       <td>
-                        <xsl:value-of select="direccion/calle"/>, 
-                        <xsl:value-of select="direccion/ciudad"/>, 
+                        <xsl:value-of select="direccion/calle"/>,
+                        <xsl:value-of select="direccion/ciudad"/>,
                         <xsl:value-of select="direccion/codigoPostal"/>
                       </td>
                     </tr>
