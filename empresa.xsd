@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="registroPersonal">
+        <xs:complexType>
+            <xs:sequence>
+                <!--Empleados-->
+                <xs:element  name="empleados">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="empleado" maxOccurs="unbounded"> 
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="sexo">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="F"/>
+                                                    <xs:enumeration value="M"/>
+                                                    <xs:enumeration value="m"/>
+                                                    <xs:enumeration value="f"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="contacto">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                <xs:element name="email" type="xs:string"/>
+                                                <xs:element name="telefono">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:pattern value="[0-9]{9}"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="departamento">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Tecnología"/>
+                                                    <xs:enumeration value="Contabilidad"/>
+                                                    <xs:enumeration value="Recursos Humanos"/>
+                                                    <xs:enumeration value="Marketing"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="cod" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="E\d{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!--Consultores-->
+                <xs:element name="consultores">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="consultor" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="sexo">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="F"/>
+                                                    <xs:enumeration value="f"/>
+                                                    <xs:enumeration value="M"/>
+                                                    <xs:enumeration value="m"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                         <xs:element name="contacto">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                <xs:element name="email" type="xs:string"/>
+                                                <xs:element name="telefono">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:pattern value="[0-9]{9}"/>
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="departamento">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Tecnología"/>
+                                                    <xs:enumeration value="Contabilidad"/>
+                                                    <xs:enumeration value="Recursos Humanos"/>
+                                                    <xs:enumeration value="Marketing"/>
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="empresaExterna" type="xs:string"/>
+                                    </xs:sequence>
+                                    <xs:attribute name="cod" use="required">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="C\d{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+
+                <!-- Departamentos-->
+                 <xs:element name="departamentos">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="departamento" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="nombre" type="xs:string"/>
+                                        <xs:element name="director" type="xs:string"/>
+                                        <xs:element name="empleados">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="empleado" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                                <xs:attribute name="cod" use="required">
+                                                                    <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                    <xs:pattern value="E\d{4}"/>
+                                                                    </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType> 
+                                        </xs:element>
+                                        <xs:element name="direccion">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="calle" type="xs:string"/>
+                                                    <xs:element name="ciudad" type="xs:string"/>
+                                                    <xs:element name="codigoPostal">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:pattern value="[0-9]{5}"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="cod">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="D\d{4}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                 </xs:element>
+
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

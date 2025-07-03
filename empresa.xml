@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="empresa.xsl" type="text/xsl"?>
+<registroPersonal xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="empresa.xsd">
+
+  <!-- Empleados -->
+  <empleados>
+    <empleado cod="E0001">
+      <nombre>Ana</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>ana@example.com</email>
+        <telefono>600111222</telefono>
+      </contacto>
+      <departamento>Recursos Humanos</departamento>
+    </empleado>
+    <empleado cod="E0002">
+      <nombre>Luis</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>luis@example.com</email>
+        <telefono>600333444</telefono>
+      </contacto>
+      <departamento>Recursos Humanos</departamento>
+    </empleado>
+    <empleado cod="E0003">
+      <nombre>Carmen</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>carmen@example.com</email>
+        <telefono>600555666</telefono>
+      </contacto>
+      <departamento>Contabilidad</departamento>
+    </empleado>
+    <empleado cod="E0004">
+      <nombre>Jorge</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>jorge@example.com</email>
+        <telefono>600777888</telefono>
+      </contacto>
+      <departamento>Contabilidad</departamento>
+    </empleado>
+    <empleado cod="E0005">
+      <nombre>Sara</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>sara@example.com</email>
+        <telefono>600999000</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+    </empleado>
+    <empleado cod="E0006">
+      <nombre>Pedro</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>pedro@example.com</email>
+        <telefono>601111222</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+    </empleado>
+    <empleado cod="E0007">
+      <nombre>Lucía</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>lucia@example.com</email>
+        <telefono>601333444</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+    </empleado>
+    <empleado cod="E0008">
+      <nombre>Iván</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>ivan@example.com</email>
+        <telefono>601555666</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+    </empleado>
+    <empleado cod="E0009">
+      <nombre>Teresa</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>teresa@example.com</email>
+        <telefono>601777888</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+    </empleado>
+    <empleado cod="E0010">
+      <nombre>Mario</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>mario@example.com</email>
+        <telefono>601999000</telefono>
+      </contacto>
+      <departamento>Recursos Humanos</departamento>
+    </empleado>
+  </empleados>
+
+  <!-- Consultores -->
+  <consultores>
+    <consultor cod="C0001">
+      <nombre>Laura</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>laura@consulting.com</email>
+        <telefono>610111111</telefono>
+      </contacto>
+      <departamento>Recursos Humanos</departamento>
+      <empresaExterna>TechConsult</empresaExterna>
+    </consultor>
+    <consultor cod="C0002">
+      <nombre>Fernando</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>fernando@consulting.com</email>
+        <telefono>610222222</telefono>
+      </contacto>
+      <departamento>Contabilidad</departamento>
+      <empresaExterna>BusinessPlus</empresaExterna>
+    </consultor>
+    <consultor cod="C0003">
+      <nombre>Nuria</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>nuria@consulting.com</email>
+        <telefono>610333333</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+      <empresaExterna>Analytica</empresaExterna>
+    </consultor>
+    <consultor cod="C0004">
+      <nombre>David</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>david@consulting.com</email>
+        <telefono>610444444</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+      <empresaExterna>Consultores SA</empresaExterna>
+    </consultor>
+    <consultor cod="C0005">
+      <nombre>Isabel</nombre>
+      <sexo>F</sexo>
+      <contacto>
+        <email>isabel@consulting.com</email>
+        <telefono>610555555</telefono>
+      </contacto>
+      <departamento>Contabilidad</departamento>
+      <empresaExterna>ThinkIT</empresaExterna>
+    </consultor>
+    <consultor cod="C0006">
+      <nombre>Raúl</nombre>
+      <sexo>M</sexo>
+      <contacto>
+        <email>raul@consulting.com</email>
+        <telefono>610666666</telefono>
+      </contacto>
+      <departamento>Tecnología</departamento>
+      <empresaExterna>ProConsult</empresaExterna>
+    </consultor>
+  </consultores>
+
+  <!-- Departamentos -->
+  <departamentos>
+    <departamento cod="D0001">
+      <nombre>Recursos Humanos</nombre>
+      <director>María López</director>
+      <empleados>
+        <empleado cod="E0001"/>
+        <empleado cod="E0002"/>
+        <empleado cod="E0010"/>
+      </empleados>
+      <direccion>
+        <calle>Calle Mayor 1</calle>
+        <ciudad>Madrid</ciudad>
+        <codigoPostal>28001</codigoPostal>
+      </direccion>
+    </departamento>
+    <departamento cod="D0002">
+      <nombre>Contabilidad</nombre>
+      <director>Antonio Ruiz</director>
+      <empleados>
+        <empleado cod="E0003"/>
+        <empleado cod="E0004"/>
+      </empleados>
+      <direccion>
+        <calle>Avda. de la Paz 10</calle>
+        <ciudad>Sevilla</ciudad>
+        <codigoPostal>41005</codigoPostal>
+      </direccion>
+    </departamento>
+    <departamento cod="D0003">
+      <nombre>Marketing</nombre>
+      <director>Lucía Fernández</director>
+      <empleados>
+        <empleado cod="E0005"/>
+        <empleado cod="E0006"/>
+      </empleados>
+      <direccion>
+        <calle>Calle Sol 22</calle>
+        <ciudad>Valencia</ciudad>
+        <codigoPostal>46004</codigoPostal>
+      </direccion>
+    </departamento>
+    <departamento cod="D0004">
+      <nombre>Tecnología</nombre>
+      <director>Javier Gómez</director>
+      <empleados>
+        <empleado cod="E0007"/>
+        <empleado cod="E0008"/>
+        <empleado cod="E0009"/>
+      </empleados>
+      <direccion>
+        <calle>Calle Norte 5</calle>
+        <ciudad>Barcelona</ciudad>
+        <codigoPostal>08001</codigoPostal>
+      </direccion>
+    </departamento>
+  </departamentos>
+
+</registroPersonal>
