@@ -145,39 +145,32 @@
 
             <!-- Departamentos -->
             <div class="tab-pane fade" id="departamentos" role="tabpanel">
-              <table id="tablaDepartamentos" class="table table-striped">
-                <thead class="table-success">
-                  <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                    <th>Director</th>
-                    <th>Empleados</th>
-                    <th>Dirección</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <xsl:for-each select="departamentos/departamento">
-                    <tr>
-                      <td><xsl:value-of select="@cod"/></td>
-                      <td><xsl:value-of select="nombre"/></td>
-                      <td><xsl:value-of select="director"/></td>
-                      <td>
-                        <xsl:for-each select="empleados/empleado">
-                          <span class="badge bg-primary me-1">
-                            <xsl:value-of select="@cod"/>
-                          </span>
-                        </xsl:for-each>
-                      </td>
-                      <td>
-                        <xsl:value-of select="direccion/calle"/>,
-                        <xsl:value-of select="direccion/ciudad"/>,
-                        <xsl:value-of select="direccion/codigoPostal"/>
-                      </td>
-                    </tr>
-                  </xsl:for-each>
-                </tbody>
-              </table>
+                <ul class="list-group">
+                <xsl:for-each select="departamentos/departamento">
+                <li class="list-group-item">
+                    <h5 class="mb-1 text-success">
+                         <xsl:value-of select="nombre"/> (<xsl:value-of select="@cod"/>)
+                            </h5>
+                            <p class="mb-1"><strong>Director:</strong> <xsl:value-of select="director"/></p>
+                             <p class="mb-1"><strong>Dirección:</strong>
+                 <xsl:value-of select="direccion/calle"/>,
+                         <xsl:value-of select="direccion/ciudad"/>,
+                <xsl:value-of select="direccion/codigoPostal"/>
+                </p>
+              <div><strong>Empleados:</strong>
+  <xsl:for-each select="empleados/empleado">
+    <xsl:variable name="codEmpleado" select="@cod"/>
+    <xsl:variable name="empleadoDetalle" select="/registroPersonal/empleados/empleado[@cod = $codEmpleado]"/>
+    <span class="badge bg-primary me-1">
+      <xsl:value-of select="$empleadoDetalle/nombre"/> (<xsl:value-of select="$codEmpleado"/>)
+    </span>
+  </xsl:for-each>
+</div>
+                 </li>
+                </xsl:for-each>
+                </ul>
             </div>
+
 
           </div>
         </div>
